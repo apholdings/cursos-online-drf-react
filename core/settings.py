@@ -12,6 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+DOMAIN = 'http://localhost:8000'
 
 SITE_NAME = 'SoloPython'
 
@@ -50,6 +51,8 @@ PROJECT_APPS = [
     'apps.blog',
     'apps.category',
     'apps.contacts',
+    'apps.courses',
+    'apps.user',
 ]
 
 THIRD_PARTY_APPS = [

@@ -40,6 +40,7 @@ function App() {
           <Route path="/connect" element={<Connect/>}/>
           <Route path="/privacidad" element={<Privacy/>}/>
           <Route path="/terminos" element={<Terms/>}/>
+          <Route path="/connect" element={<Connect/>}/>
 
         </Routes>
       </Router>

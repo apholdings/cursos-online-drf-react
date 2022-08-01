@@ -87,12 +87,16 @@ function Navbar({account}){
 
     const authLinks = (
       <Fragment>
-        <button className='bx bx-user-circle text-3xl dark:hover:text-white hover:text-blue-600 text-gray-600 dark:text-dark-txt text-md font-gilroy-medium'></button>
+        <NavLink to={`/profile`} className='bx bx-user-circle text-3xl ml-5 dark:hover:text-white hover:text-blue-600 text-gray-400 dark:text-dark-txt text-md font-gilroy-medium'>
+
+        </NavLink>
       </Fragment>
     )
     const guestLinks = (
       <Fragment>
-        <button className='bx bx-user-circle text-3xl dark:hover:text-white hover:text-blue-600 text-gray-600 dark:text-dark-txt text-md font-gilroy-medium'></button>
+        <NavLink to="/connect" className="ml-5 text-sm font-gilroy-semibold text-gray-400 hover:text-blue-600 rounded-full border border-gray-400 py-1 px-5">
+          Acceder       
+        </NavLink>      
       </Fragment>
     )
 
@@ -137,9 +141,10 @@ function Navbar({account}){
                 ))}
               </div>
                 
-                <a href="#" className="ml-5 text-sm font-gilroy-semibold text-gray-400 hover:text-blue-600 rounded-full border border-gray-400 py-1 px-5">
-                  Acceder
-                </a>
+                {
+                  account ?
+                  authLinks:guestLinks
+                }
             </div>
           </div>
       {/* When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars */}
