@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.rec.rec-arrow {
+background-color: #0B1014;
+color: #eeeeee;
+}
+
+.rec.rec-arrow:hover {
+background-color: #393b3f;
+}
+
+/* hide disabled buttons */
+.rec.rec-arrow:disabled {
+visibility: hidden;
+}
+
+.rec-carousel-item:focus {
+outline: none;
+box-shadow: inset 0 0 1px 1px lightgrey;
+background-color: #eaeaea;
+}
+
+body {
+  background-color: #f9f9f9 ;
+}
+
+body.dark {
+  background-color: #22202A ;
+}
+
+@layer base {
+    /* Gilroy */
+  @font-face {
+    font-family: 'Gilroy-Thin';
+    font-weight: 100;
+    font-style: normal;
+    src: url('./fonts/Gilroy/woff/Gilroy-Thin.woff') format('woff'),
+      url('./fonts/Gilroy/woff2/Gilroy-Thin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Gilroy-UltraLight';
+    font-weight: 200;
+    font-style: normal;
+    src: url('./fonts/Gilroy/woff/Gilroy-UltraLight.woff') format('woff'),
+      url('./fonts/Gilroy/woff2/Gilroy-UltraLight.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Gilroy-Light';
+    font-weight: 300;
+    font-style: normal;
+    src: url('./fonts/Gilroy/woff/Gilroy-Light.woff') format('woff'),
+      url('./fonts/Gilroy/woff2/Gilroy-Light.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Gilroy-Regular';
+    font-weight: 400;
+    font-style: normal;
+    src: url('./fonts/Gilroy/woff/Gilroy-Regular.woff') format('woff'),
+      url('./fonts/Gilroy/woff2/Gilroy-Regular.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Gilroy-Medium';
+    font-weight: 500;
+    font-style: normal;
+    src: url('./fonts/Gilroy/woff/Gilroy-Medium.woff') format('woff'),
+      url('./fonts/Gilroy/woff2/Gilroy-Medium.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Gilroy-Semibold';
+    font-weight: 600;
+    font-style: normal;
+    src: url('./fonts/Gilroy/woff/Gilroy-Semibold.woff') format('woff'),
+      url('./fonts/Gilroy/woff2/Gilroy-Semibold.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Gilroy-Bold';
+    font-weight: 700;
+    font-style: normal;
+    src: url('./fonts/Gilroy/woff/Gilroy-Bold.woff') format('woff'),
+      url('./fonts/Gilroy/woff2/Gilroy-Bold.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Gilroy-Heavy';
+    font-weight: 800;
+    font-style: normal;
+    src: url('./fonts/Gilroy/woff/Gilroy-Heavy.woff') format('woff'),
+      url('./fonts/Gilroy/woff2/Gilroy-Heavy.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Gilroy-Black';
+    font-weight: 900;
+    font-style: normal;
+    src: url('./fonts/Gilroy/woff/Gilroy-Black.woff') format('woff'),
+      url('./fonts/Gilroy/woff2/Gilroy-Black.woff2') format('woff2');
+  }
+  
+  @font-face {
+    font-family: 'Gilroy-ThinItalic';
+    font-weight: 100;
+    font-style: normal;
+    src: url('./fonts/Gilroy/woff/Gilroy-ThinItalic.woff') format('woff'),
+      url('./fonts/Gilroy/woff2/Gilroy-ThinItalic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Gilroy-UltraLightItalic';
+    font-weight: 200;
+    font-style: normal;
+    src: url('./fonts/Gilroy/woff/Gilroy-UltraLightItalic.woff') format('woff'),
+      url('./fonts/Gilroy/woff2/Gilroy-UltraLightItalic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Gilroy-LightItalic';
+    font-weight: 300;
+    font-style: normal;
+    src: url('./fonts/Gilroy/woff/Gilroy-LightItalic.woff') format('woff'),
+      url('./fonts/Gilroy/woff2/Gilroy-LightItalic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Gilroy-RegularItalic';
+    font-weight: 400;
+    font-style: normal;
+    src: url('./fonts/Gilroy/woff/Gilroy-RegularItalic.woff') format('woff'),
+      url('./fonts/Gilroy/woff2/Gilroy-RegularItalic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Gilroy-MediumItalic';
+    font-weight: 500;
+    font-style: normal;
+    src: url('./fonts/Gilroy/woff/Gilroy-MediumItalic.woff') format('woff'),
+      url('./fonts/Gilroy/woff2/Gilroy-MediumItalic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Gilroy-SemiboldItalic';
+    font-weight: 600;
+    font-style: normal;
+    src: url('./fonts/Gilroy/woff/Gilroy-SemiboldItalic.woff') format('woff'),
+      url('./fonts/Gilroy/woff2/Gilroy-SemiboldItalic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Gilroy-BoldItalic';
+    font-weight: 700;
+    font-style: normal;
+    src: url('./fonts/Gilroy/woff/Gilroy-BoldItalic.woff') format('woff'),
+      url('./fonts/Gilroy/woff2/Gilroy-BoldItalic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Gilroy-HeavyItalic';
+    font-weight: 800;
+    font-style: normal;
+    src: url('./fonts/Gilroy/woff/Gilroy-HeavyItalic.woff') format('woff'),
+      url('./fonts/Gilroy/woff2/Gilroy-HeavyItalic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Gilroy-BlackItalic';
+    font-weight: 900;
+    font-style: normal;
+    src: url('./fonts/Gilroy/woff/Gilroy-BlackItalic.woff') format('woff'),
+      url('./fonts/Gilroy/woff2/Gilroy-BlackItalic.woff2') format('woff2');
+  }
+}
+
+.active{
+  @apply text-blue-600 
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  z-index: -1;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d8d8d8;
+  opacity: 10px;
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb:hover{
+  background: #c9c9c9;
+  opacity: 10px;
+  border-radius: 10px;
+}
+
+
+
+@layer components {
+  .sidebar-icon {
+    @apply relative flex items-center justify-center 
+    h-12 w-12 mt-2 mb-2 mx-auto  
+  bg-white hover:bg-blue-600 dark:bg-dark-second 
+  text-gray-600 dark:text-dark-txt hover:text-white
+    hover:rounded-xl rounded-3xl
+    transition-all duration-300 ease-linear
+    cursor-pointer shadow-lg ;
+  }
+  
+  .active-sidebar-icon {
+    @apply relative flex items-center justify-center 
+    h-12 w-12 mt-2 mb-2 mx-auto  
+   bg-blue-600 dark:bg-dark-second 
+   dark:text-dark-txt text-white
+     rounded-xl
+    transition-all duration-300 ease-linear
+    cursor-pointer shadow-lg ;
+  }
+}
