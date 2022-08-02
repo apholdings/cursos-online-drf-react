@@ -9,10 +9,11 @@ function Header(){
 
   const [loading, setLoading] = useState(false)
     const [formData, setFormData] = useState({
-      name: '',
+      // name: '',
       email: '',
     });
-    const { name,
+    const { 
+      // name,
       email } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -27,7 +28,7 @@ function Header(){
       }
 
       const formData = new FormData()
-      formData.append('name', name)
+      // formData.append('name', name)
       formData.append('email', email)
 
       const fetchData = async () => {
@@ -47,7 +48,7 @@ function Header(){
       
     }
     return(
-        <main className="mt-8 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 lg:mt-16">
+        <main className="mt-8 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 lg:mt-24">
           <div className="lg:grid lg:grid-cols-12 lg:gap-8">
             <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
               <h1 className="text-5xl font-gilroy-black dark:text-white">Habilidades para ti</h1>
@@ -69,7 +70,7 @@ function Header(){
                     className="mx-0.5 block w-full py-3 text-base rounded-md dark:bg-dark-main dark:border-dark-second dark:text-dark-txt placeholder-gray-500 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:flex-1 border-gray-300"
                     placeholder="Correo Electronico"
                   />
-                  <label htmlFor="email" className="sr-only">
+                  {/* <label htmlFor="email" className="sr-only">
                     Name
                   </label>
                   <input
@@ -80,7 +81,7 @@ function Header(){
                     required
                     className="mx-0.5 block w-full py-3 text-base rounded-md dark:bg-dark-main dark:border-dark-second dark:text-dark-txt placeholder-gray-500 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:flex-1 border-gray-300"
                     placeholder="Nombre"
-                  />
+                  /> */}
                   <button
                     type="submit"
                     className="mt-3 w-full px-6 py-3 border border-transparent text-base font-gilroy-medium rounded-full text-white bg-blue-800 shadow-sm hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:flex-shrink-0 sm:inline-flex sm:items-center sm:w-auto"

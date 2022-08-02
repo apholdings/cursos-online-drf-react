@@ -18,7 +18,7 @@ import { ethers } from 'ethers';
 import Web3 from "web3/dist/web3.min";
 
 import Token from 'cache/contracts/Token.sol/Token.json'
-const tokenAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+const tokenAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
 
 export const loadWeb3 = () => async dispatch => {
     if(window.ethereum) {
@@ -36,6 +36,90 @@ export const loadWeb3 = () => async dispatch => {
             type: LOAD_WEB3_SUCCESS,
             payload:accounts[0]
         })
+    } else {
+        dispatch({
+            type: LOAD_WEB3_FAIL,
+        })
+    }
+}
+
+export const loginWeb3 = () => async dispatch => {
+
+    const config = {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        }
+    };
+
+    if(window.ethereum) {
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        localStorage.setItem('account', accounts[0]);
+        dispatch({
+            type: LOAD_WEB3_SUCCESS,
+            payload:accounts[0]
+        })
+        const formData = new FormData()
+        formData.append('account', accounts[0])
+
+        try {
+            const res = await axios.post(
+                `${process.env.REACT_APP_API_URL}/api/user/create`,
+                formData,
+                config
+            );
+
+            if (res.status === 201) {
+                dispatch({
+                    type: CREATE_USER_SUCCESS,
+                    payload: res.data
+                });
+            } else {
+                dispatch({
+                    type: CREATE_USER_FAIL
+                });
+            }
+        } catch(err) {
+            dispatch({
+                type: CREATE_USER_FAIL
+            });
+        }
+
+    } else if (window.web3) {
+        window.web3 = new Web3(window.web3.currentProvider)
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        localStorage.setItem('account', accounts[0]);
+        dispatch({
+            type: LOAD_WEB3_SUCCESS,
+            payload:accounts[0]
+        })
+        const formData = new FormData()
+        formData.append('account', accounts[0])
+
+        try {
+            const res = await axios.post(
+                `${process.env.REACT_APP_API_URL}/api/user/create`,
+                formData,
+                config
+            );
+
+            if (res.status === 201) {
+                dispatch({
+                    type: CREATE_USER_SUCCESS,
+                    payload: res.data
+                });
+            } else {
+                dispatch({
+                    type: CREATE_USER_FAIL
+                });
+            }
+        } catch(err) {
+            dispatch({
+                type: CREATE_USER_FAIL
+            });
+        }
+        
+
     } else {
         dispatch({
             type: LOAD_WEB3_FAIL,
@@ -61,9 +145,8 @@ export const get_network_id = () => async dispatch => {
 }
 
 export const load_token = () => async dispatch => {
-    if(window.web3){
-        const accounts = await window.ethereum.request({method:'eth_requestAccounts'})
-        if(typeof window.ethereum !== "undefined") {
+    if(window.ethereum){
+            const accounts = await window.ethereum.request({method:'eth_requestAccounts'})
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             const signer = provider.getSigner()
 
@@ -71,7 +154,6 @@ export const load_token = () => async dispatch => {
 
             const contract = new ethers.Contract(tokenAddress, Token.abi, signer)
 
-            const tokenBalance = await contract.balanceOf(accounts[0]);
 
             dispatch({
                 type: LOAD_PYTHONS_TOKEN_DATA_SUCCESS,
@@ -83,16 +165,16 @@ export const load_token = () => async dispatch => {
                 payload:gasPrice
             })
 
-            if(tokenBalance){
-                dispatch({
-                    type: LOAD_PYTHONS_TOKEN_BALANCE_SUCCESS,
-                    payload:tokenBalance.toString()
-                })
-            } else {
-                dispatch({
-                    type: LOAD_PYTHONS_TOKEN_BALANCE_FAIL
-                })
-            }
+            // if(tokenBalance){
+            //     dispatch({
+            //         type: LOAD_PYTHONS_TOKEN_BALANCE_SUCCESS,
+            //         payload:tokenBalance.toString()
+            //     })
+            // } else {
+            //     dispatch({
+            //         type: LOAD_PYTHONS_TOKEN_BALANCE_FAIL
+            //     })
+            // }
             
         }else{
             dispatch({
@@ -104,6 +186,6 @@ export const load_token = () => async dispatch => {
             dispatch({
                 type: LOAD_PYTHONS_TOKEN_BALANCE_FAIL
             })
-         }
+        
     }
 }

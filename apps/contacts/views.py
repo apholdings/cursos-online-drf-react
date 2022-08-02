@@ -122,7 +122,7 @@ class DemoAddListView(APIView):
     def post(self, request, format=None):
         data = self.request.data
         email=data['email']
-        first_name=data['name']
+        # first_name=data['name']
         
         try:
             # CREATE/UPDATING CONTACT
@@ -130,7 +130,7 @@ class DemoAddListView(APIView):
             data = {
                 'contact': {
                     'email': email,
-                    'firstName': first_name,
+                    # 'firstName': first_name,
                 }
             }
             headers = {

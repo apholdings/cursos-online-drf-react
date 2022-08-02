@@ -1,6 +1,7 @@
 import FullWidthLayout from "hocs/layouts/FullWidthLayout"
 import { connect } from "react-redux"
 import { CheckCircleIcon } from '@heroicons/react/solid'
+import { useEffect } from "react"
 
 const includedFeatures = [
   'Private forum access',
@@ -10,6 +11,11 @@ const includedFeatures = [
 ]
 
 function Servicios(){
+
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[])
+
     return(
         <FullWidthLayout>
             <div className="pt-12 sm:pt-16 lg:pt-20">

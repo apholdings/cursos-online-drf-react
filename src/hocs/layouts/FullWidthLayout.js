@@ -20,6 +20,7 @@ const FullWidthLayout = ({children, categories,
             loadWeb3()
             load_token()
         }
+        
         if(window.ethereum){
             get_network_id()
         }

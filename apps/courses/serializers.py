@@ -216,7 +216,6 @@ class CourseDetailsSerializer(serializers.ModelSerializer):
             "description",
             "updated",
             "created",
-            "date_watched",
             "course_length",
             "language",
             "best_seller",

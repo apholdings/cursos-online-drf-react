@@ -14,6 +14,8 @@ import Contacto from 'containers/pages/contacto/Contacto';
 import Connect from 'containers/pages/Connect';
 import Privacy from 'containers/pages/Privacy';
 import Terms from 'containers/pages/Terms';
+import Courses from 'containers/pages/courses/Courses';
+import CourseDetail from 'containers/pages/courses/CourseDetail';
 
 
 function App() {
@@ -41,6 +43,10 @@ function App() {
           <Route path="/privacidad" element={<Privacy/>}/>
           <Route path="/terminos" element={<Terms/>}/>
           <Route path="/connect" element={<Connect/>}/>
+
+
+          <Route path="/cursos" element={<Courses/>}/>
+          <Route path="/curso/detalle/:course_uuid" element={<CourseDetail/>}/>
 
         </Routes>
       </Router>

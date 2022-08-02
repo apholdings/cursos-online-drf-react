@@ -2,17 +2,23 @@ import { ChevronRightIcon } from "@heroicons/react/solid"
 import Header from "components/pages/connect/Header"
 import FullWidthLayout from "hocs/layouts/FullWidthLayout"
 import { connect } from "react-redux"
-import { loadWeb3 } from "redux/actions/web3"
+import { Navigate, useNavigate } from "react-router-dom"
+import { loadWeb3, loginWeb3 } from "redux/actions/web3"
 
-function Connect({loadWeb3}){
+function Connect({loginWeb3, account}){
 
+    const navigate = useNavigate()
+
+    if(account){
+        return <Navigate to="/"/>
+    }
     
     return(
         <FullWidthLayout>
             <Header/>
             <div className="bg-white dark:bg-dark-main hover:dark:bg-dark-second hover:bg-gray-50 shadow overflow-hidden sm:rounded-md">
                 <ul role="list" className="divide-y divide-gray-200">
-                    <li onClick={()=>loadWeb3()}>
+                    <li onClick={()=>loginWeb3()}>
                         <div className="block  transition duration-300 ease-in-out cursor-pointer">
                             <div className="flex items-center px-4 py-4 sm:px-6">
                                 <div className="min-w-0 flex-1 flex items-center">
@@ -43,9 +49,9 @@ function Connect({loadWeb3}){
 }
 
 const mapStateToProps = state => ({
-
+    account: state.web3.account
 })
 
 export default connect(mapStateToProps,{
-    loadWeb3
+    loginWeb3
 })(Connect)
